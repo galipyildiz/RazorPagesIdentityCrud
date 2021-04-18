@@ -1,0 +1,13 @@
+﻿@page "{id:int}"
+@model RazorPagesIdentityCrud.Pages.Urunler.DuzenleModel
+@{
+}
+<h1>Düzenle Urun - @Model.Urun.Id</h1>
+<form class="form" method="post">
+    <input type="hidden" asp-for="Urun.Id" />
+    <input asp-for="Urun.UrunAd" class="form-control mb-2" placeholder="Ürün Adı giriniz." />
+    <span asp-validation-for="Urun.UrunAd"></span>
+    <input asp-for="Urun.BirimFiyat" class="form-control mb-2" placeholder="Birim Fiyat giriniz." />
+    <span asp-validation-for="Urun.BirimFiyat"></span>
+    <button class="btn btn-success">Kaydet</button>
+</form>

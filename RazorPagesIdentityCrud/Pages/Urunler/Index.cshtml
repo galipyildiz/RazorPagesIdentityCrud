@@ -1,0 +1,30 @@
+﻿@page
+@model RazorPagesIdentityCrud.Pages.Urunler.IndexModel
+@{
+}
+@*https://docs.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-5.0&tabs=visual-studio*@
+<a class="btn btn-success mb-2" asp-page="/Urunler/Yeni">Yeni Ürün Ekle</a>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Birim Fiyat</th>
+                <th>işlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model._db.Urunler)
+            {
+                <tr>
+                    <td>@item.UrunAd</td>
+                    <td>@item.BirimFiyat</td>
+                    <td>
+                        <button class="btn btn-danger" type="submit" asp-page-handler="delete" asp-route-id="@item.Id">Sil</button>
+                        <a class="btn btn-info" asp-page="/Urunler/Duzenle" asp-route-id="@item.Id">Düzenle</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
